@@ -1,0 +1,35 @@
+{% extends 'home/index.html' %}
+
+{% block content %}
+
+<table>
+    <tr>
+        <th>leverancier</th>
+	<th>regio 1</th>
+	<th>regio 2</th>
+        <th>regio 3</th>
+        <th>regio 4</th>
+        <th>regio 5</th>
+        <th>regio 6</th>
+        <th>regio 7</th>
+        <th>regio 8</th>
+        <th>regio 9</th>
+        <th>regio 10</th>
+    </tr>
+    {% for item in gasregios %}
+    <tr> 
+        <td>{{ item.leverancier }}</td>
+	<td>{{ item.regio_1}}</td>
+	<td>{{ item.regio_2}}</td>
+        <td>{{ item.regio_3}}</td>
+        <td>{{ item.regio_4}}</td>
+        <td>{{ item.regio_5}}</td>
+        <td>{{ item.regio_6}}</td>
+        <td>{{ item.regio_7}}</td>
+        <td>{{ item.regio_8}}</td>
+        <td>{{ item.regio_9}}</td>
+        <td>{{ item.regio_10}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{%endblock%}
