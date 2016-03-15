@@ -1,21 +1,23 @@
 {% extends 'home/index.html' %}
 
 {% block content %}
+<div class="resultaat">
+<h1> Gasregio's en bijbehorende kosten in NL</h1>
 <img src="static/images/regio.PNG" />
 
 <table>
     <tr>
         <th>leverancier</th>
-	<th>regio A</th>
-	<th>regio B</th>
-        <th>regio C</th>
-        <th>regio D</th>
-        <th>regio E</th>
-        <th>regio F</th>
-        <th>regio G</th>
-        <th>regio H</th>
-        <th>regio I</th>
-        <th>regio J</th>
+	<th>A</th>
+	<th>B</th>
+        <th>C</th>
+        <th>D</th>
+        <th>E</th>
+        <th>F</th>
+        <th>G</th>
+        <th>H</th>
+        <th>I</th>
+        <th>J</th>
     </tr>
     {% for item in gasregios %}
     <tr> 
@@ -33,4 +35,5 @@
     </tr>
     {% endfor %}
 </table>
+</div>
 {%endblock%}

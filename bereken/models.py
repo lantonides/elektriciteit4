@@ -1,30 +1,32 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 
 class Leveranciers(models.Model):
-        naam=models.CharField(max_length=10)
+        naam=models.CharField(max_length=15,primary_key=True)
 
         def __str__(self):
                 return(self.naam)
 
 class Netbeheerders(models.Model):
-        naam=models.CharField(max_length=10)
+        naam=models.CharField(max_length=15)
 
         def __str__(self):
                 return(self.naam)
 
 class Kosten(models.Model):
-        gasprijs_per_m3=models.FloatField()
+        product=models.CharField(max_length=50)
+	gasprijs_per_m3=models.FloatField()
         prijs_per_Kw=models.FloatField()
 	vastrecht_gas=models.FloatField()
 	vastrecht_elektriciteit=models.FloatField()
 	leverancier=models.ForeignKey(Leveranciers, on_delete=models.CASCADE, default=0)
-
+	datum=models.DateTimeField(default=timezone.now)
 	def __str__(self):
-                return str(self.leverancier)
+                return str(self.product)
 
 class Regiotoeslag(models.Model):
 	jaar=models.CharField(max_length=4)
