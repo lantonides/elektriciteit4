@@ -66,7 +66,7 @@ def get_url():
 #main
 with open('nrg.csv','a',newline='') as out:
     csv_out=csv.writer(out)
-    csv_out.writerow(['id','product','gasprijs_per_m3','prijs_per_Kw','vastrecht_gas','vastrecht_elektriciteit','leverancier'])
+    csv_out.writerow(['id','product','gasprijs_per_m3','prijs_per_Kw','vastrecht_gas','vastrecht_elektriciteit','naam'])
 
 get_url()
 

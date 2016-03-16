@@ -5,6 +5,7 @@ from .models import Netbeheerderkosten,Kosten,Algemenekosten, Regiotoeslag
 import matplotlib.pyplot as plt
 from io import BytesIO
 import base64
+import datetime
 
 def bereken(request):
         if request.method=='POST':
@@ -59,3 +60,13 @@ def bereken(request):
 def gasregios(request):
 	gasregios=Regiotoeslag.objects.all
 	return render(request,'bereken/gasregios.html',{'gasregios':gasregios})
+
+def tarieven(request):
+	enddate=datetime.date.today()
+	startdate=enddate-datetime.timedelta(days=30)
+	tarieven=Kosten.objects.filter(datum__range=[startdate,enddate])
+	return render(request,'bereken/tarieven.html',{'tarieven':tarieven})
+
+def prijsontwikkeling(request):
+	ontwikkeling=Kosten.objects.all
+	return render(request,'bereken/prijsontwikkeling.html',{'prijsontwikkeling':prijsontwikkeling})
